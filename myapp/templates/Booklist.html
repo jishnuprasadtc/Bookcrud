@@ -1,0 +1,67 @@
+{%extends 'home.html'%}
+{%block body_block%}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <form action="" method="post">
+                {%csrf_token%}
+               <div class="d-flex">
+                 <input type="text" name="box" id="" class="form-control me-2">
+                <button type="submit"class="btn btn-success ">Search</button>
+               </div>
+            </form>
+
+
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <h2 class="text-center"><i class="fa-solid fa-book-open-reader" style="color: #000000;"></i>
+            Book List
+        </h2>
+        <table class="table border border-3 table-info table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        
+
+        <!-- {{data}} -->
+
+       
+            {%for book in data%}
+
+           <tr>
+                <td>{{book.id}}</td>
+                <td>{{book.name}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.price}}</td>
+
+                <td>
+                    <a href="{%url 'book-detail' book.id%}"><i class="fa-solid fa-eye" style="color: #000000;"></i></a>
+                    
+                    <a href="{%url 'book-remove' book.id%}"><i class="fa-solid fa-trash" style="color: #dd0000;"></i></a>
+
+                    <a href="{%url 'book-edit' book.id%}"><i class="fa-solid fa-pen-to-square" style="color: #05f35869;"></i></a>
+                </td>
+
+        
+           </tr>
+            
+            {%endfor%}
+       
+        </table></div>
+        <div class="col-2"></div>
+    </div>
+
+</div>
+{%endblock%}

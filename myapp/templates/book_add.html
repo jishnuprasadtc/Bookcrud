@@ -1,0 +1,21 @@
+{%extends 'home.html'%}
+
+{%block body_block%}
+<div class="container mt-5 ">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <form action="" method="post">
+                <h2> <i class="fa-solid fa-book-open-reader" style="color: #000000;"></i> Add Book </h2>
+                {%csrf_token%}
+                {{form.as_p}}
+                
+                <div class="mt-5">
+                    <button type="submit" class="btn btn-outline-success text-light">ADD</button>
+                </div>
+               </form>
+        </div>
+        <div class="col-4"></div>
+    </div>
+ </div>
+{%endblock%}
